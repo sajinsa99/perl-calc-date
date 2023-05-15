@@ -2,7 +2,7 @@ FROM alpine:latest
 
 # install tools
 
-RUN apk update --quiet --no-progress && apk upgrade --quiet --no-progress && apk add --quiet --no-progress --no-cache bash wget curl tar
+RUN apk update --no-cache --quiet --no-progress && apk upgrade --no-cache --quiet --no-progress && apk add --quiet --no-progress --no-cache bash wget curl tar
 
 # set CET timezone
 RUN apk add --quiet --no-progress --no-cache tzdata && cp -vf /usr/share/zoneinfo/CET /etc/localtime && echo CET > /etc/timezone && date && apk del --quiet --no-progress --no-cache tzdata
@@ -50,6 +50,6 @@ RUN rm -f /tmp/*.* ;\
   rm -rf /tmp/* ;\
   rm -rf /var/cache/apk/*
 
-ADD perl-calc-date.pl /root/
+ADD calc-date.pl /root/
 
 WORKDIR /root
