@@ -72,10 +72,10 @@ my $new_date = $EMPTY;
 my $day_of_the_week = Time::Piece->strptime("${param_year}-${param_month}-${param_day}", '%Y-%m-%d');
 my $new_day_of_the_week = $EMPTY;
 
-if($param_ops =~ m/^p$/xmsi) {
+if($param_ops =~ m/^\+$/xmsi) {
 	$new_date = DateTime->new( year => $param_year, month => $param_month, day => $param_day )->add( days => $param_jours)->ymd('-');
 }
-if($param_ops =~ m/^m$/xmsi) {
+if($param_ops =~ m/^\-$/xmsi) {
 	$new_date = DateTime->new( year => $param_year, month => $param_month, day => $param_day )->subtract( days => $param_jours)->ymd('-');
 }
 

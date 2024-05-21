@@ -17,7 +17,7 @@ RUN apk add --quiet --no-progress --no-cache expat-dev \
 	zlib-dev
 
 # download, compile and install perl, the one coming from alpine distribution, is bugged using diagnostics perl module
-ENV PERL_VERSION=5.38.0 \
+ENV PERL_VERSION=5.38.2 \
 	PERL_MM_USE_DEFAULT=1
 RUN cd /tmp ;\
 	wget --no-proxy --no-check-certificate -nv https://www.cpan.org/src/5.0/perl-$PERL_VERSION.tar.gz ;\
@@ -51,5 +51,6 @@ RUN rm -f /tmp/*.* ;\
   rm -rf /var/cache/apk/*
 
 ADD calc-date.pl /root/
+ADD this-date.pl /root/
 
 WORKDIR /root
